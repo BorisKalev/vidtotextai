@@ -33,8 +33,17 @@ export default function Home() {
         <Dot className="text-blue-400"></Dot>
       </div>
       <Pricing />
-      {/* <Divider/>
-      <Footer/> */}
+
+      <footer className="bg-gray-200/20 flex flex-col h-20 py-24 px-12 z-20 relative overflow-hidden">
+        <p>All Rights Reserved, {new Date().getFullYear()}</p>
+        <a
+          className="hover:text-blue-400 transition-all duration-300"
+          href="https://www.linkedin.com/in/boris-kalev-977972278/"
+          target="_blank"
+        >
+          Build By Boris Kalev
+        </a>
+      </footer>
     </main>
   );
 }

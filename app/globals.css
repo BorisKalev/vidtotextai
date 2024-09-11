@@ -104,6 +104,6 @@ body {
   }
 
   button{
-    @apply hover:cursor-pointer bg-purple-600 hover:bg-purple-700
+    @apply hover:cursor-pointer bg-blue-600 hover:bg-blue-700
   }
 }
