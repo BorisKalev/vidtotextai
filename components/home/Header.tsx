@@ -1,4 +1,5 @@
 import logo from "@/app/images/chatbot.png";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,14 +40,24 @@ export default function Header() {
 
       <div className="flex lg:justify-center gap-2 lg:gap-12 lg:items-center">
         <NavLink href="/#pricing">Pricing</NavLink>
-        <NavLink href="/#posts">Posts</NavLink>
+        <SignedIn>
+          <NavLink href="/#posts">Your Posts</NavLink>
+        </SignedIn>
       </div>
 
       <div className="flex lg:justify-end lg:flex-1">
-        <div className="flex gap-2 items-center">
-          <NavLink href="/dashboard">Upload A Video</NavLink>
-        </div>
-        <NavLink href="/signin">Sign In</NavLink>
+        <SignedIn>
+          <div className="flex gap-2 items-center">
+            <NavLink href="/dashboard">Upload A Video</NavLink>
+            <UserButton />
+          </div>
+        </SignedIn>
+
+        <SignedOut>
+          <SignInButton>
+            <NavLink href="/signin">Sign In</NavLink>
+          </SignInButton>
+        </SignedOut>
       </div>
     </nav>
   );
