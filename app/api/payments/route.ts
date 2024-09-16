@@ -1,5 +1,6 @@
 
-  import { NextRequest, NextResponse } from "next/server";
+import { handleCheckoutSessionCompleted, handleSubscriptionDeleted } from "@/lib/payment-helpers";
+import { NextRequest, NextResponse } from "next/server";
   import Stripe from "stripe";
   
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -32,15 +33,16 @@
     
             //connect to the db create or update user
             // await handleCheckoutSessionCompleted({ session, stripe });
+            await handleCheckoutSessionCompleted({session, stripe});
             break;
           }
 
         case "customer.subscription.deleted": {
             
             const subscriptionId = event.data.object.id;
-            const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-            console.log({subscription});
-            //connect to db
+
+            await handleSubscriptionDeleted({subscriptionId, stripe});
+           
             break;
         }
             
