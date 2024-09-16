@@ -24,7 +24,7 @@ export default function Banner() {
         className="mt-6 text-xl rounded-full px-12 py-8 lg:mt-20 bg-gradient-to-r from-blue-400 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white font-bold shadow-lg hover:no-underline"
       >
         <Link href={"/#pricing"} className="flex gap-2 items-center">
-          <span className="relative">Get SpeakEasy</span>
+          <span className="relative">Get Verbto</span>
           <ArrowRight className="animate-pulse" />
         </Link>
       </Button>

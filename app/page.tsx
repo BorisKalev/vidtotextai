@@ -7,25 +7,26 @@ import { Dot } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="mx-auto w-full inset-0 h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
-      <BgGradient children={""} />
-      <Banner />
-      <div className="flex items-center justify-center">
-        <Dot className="text-blue-400"></Dot>
-        <Dot className="text-blue-400"></Dot>
-        <Dot className="text-blue-400"></Dot>
-      </div>
+    <>
+      <main className="mx-auto w-full inset-0 h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+        <BgGradient children={""} />
+        <Banner />
+        <div className="flex items-center justify-center">
+          <Dot className="text-blue-400"></Dot>
+          <Dot className="text-blue-400"></Dot>
+          <Dot className="text-blue-400"></Dot>
+        </div>
 
-      <HowItWorks />
+        <HowItWorks />
 
-      <div className="flex items-center justify-center">
-        <Dot className="text-blue-400"></Dot>
-        <Dot className="text-blue-400"></Dot>
-        <Dot className="text-blue-400"></Dot>
-      </div>
-      <Pricing />
-
-      <footer className="bg-gray-200/20 flex flex-col h-20 py-24 px-12 z-20 relative overflow-hidden">
+        <div className="flex items-center justify-center">
+          <Dot className="text-blue-400"></Dot>
+          <Dot className="text-blue-400"></Dot>
+          <Dot className="text-blue-400"></Dot>
+        </div>
+        <Pricing />
+      </main>
+      <footer className="bg-blue-200/20 flex flex-col h-20 py-24 px-12 z-20 relative overflow-hidden">
         <p>All Rights Reserved, {new Date().getFullYear()}</p>
         <a
           className="hover:text-blue-400 transition-all duration-300"
@@ -35,6 +36,6 @@ export default function Home() {
           Build By Boris Kalev
         </a>
       </footer>
-    </main>
+    </>
   );
 }

@@ -22,7 +22,7 @@ const NavLink = ({
 
 export default function Header() {
   return (
-    <nav className="container flex items-center justify-between px-8 pt-4 mx-auto">
+    <nav className="container flex items-center justify-between px-8 pt-4 mx-auto bg-blue-200/20 py-4">
       <div className="flex lg:flex-1">
         <NavLink href={"/"}>
           <span className="flex items-center gap-2 shrink-0">
@@ -41,7 +41,7 @@ export default function Header() {
       <div className="flex lg:justify-center gap-2 lg:gap-12 lg:items-center">
         <NavLink href="/#pricing">Pricing</NavLink>
         <SignedIn>
-          <NavLink href="/#posts">Your Posts</NavLink>
+          <NavLink href="/posts">Your Posts</NavLink>
         </SignedIn>
       </div>
 

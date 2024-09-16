@@ -13,6 +13,11 @@ const config: Config = {
 		fontFamily: {
 			sans: ["var(--font-sans)", ...fontFamily.sans]
 		},
+		screens: {
+			'sm-max': { max: '639px' }, 
+			'md-max': { max: '767px' }, 
+			'lg-max': { max: '1023px' },
+		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
