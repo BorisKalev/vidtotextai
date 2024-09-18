@@ -28,13 +28,13 @@ export default function UploadForm() {
   const { toast } = useToast();
   const { startUpload } = useUploadThing("videoOrAudioUploader", {
     onClientUploadComplete: () => {
-      toast({ title: "uploaded successfully!" });
+      toast({ title: "uploaded successfully! ✅" });
     },
     onUploadError: (err) => {
       console.error("Error occurred", err);
     },
     onUploadBegin: () => {
-      toast({ title: "uploaded has begun!" });
+      toast({ title: "upload has begun! 🚀" });
     },
   });
 
@@ -69,9 +69,9 @@ export default function UploadForm() {
         });
       }
       toast({
-        title: "Transcription is in progress...",
+        title: "Transcription is in progress... 📃",
         description:
-          "Hang tight! Our digital wizards are sprinkling magic dust on your file!",
+          "Hang tight! Our digital wizards are sprinkling magic dust on your file! ✨",
       });
 
       const result = await transcribeUploadedFile(resp);

@@ -82,8 +82,6 @@ export default function ContentEditor({
         try {
           const deleteResult = await deletePostAction({ postId: posts[0].id });
           if (!deleteResult.success) throw new Error("Failed to delete post");
-
-          // Show success message
           Swal.fire({
             title: "Deleted!",
             text: "Your post has been deleted.",
