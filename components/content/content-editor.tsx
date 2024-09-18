@@ -4,10 +4,13 @@ import { ForwardRefEditor } from "./forward-ref-editor";
 import { useFormState, useFormStatus } from "react-dom";
 import { updatePostAction } from "@/actions/edit-action";
 import { Button } from "../ui/button";
-import { Download, Edit2, Loader2 } from "lucide-react";
-
+import { Download, Edit2, Loader2, Trash } from "lucide-react";
+import { deletePostAction } from "@/actions/delete-action";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 function SubmitButton() {
   const { pending } = useFormStatus();
+
   return (
     <Button
       type="submit"
@@ -48,6 +51,7 @@ export default function ContentEditor({
 }) {
   const [content, setContent] = useState(posts[0].content);
   const [isChanged, setIsChanged] = useState(false);
+  const router = useRouter();
 
   const updatedPostActionWithId = updatePostAction.bind(null, {
     postId: posts[0].id,
@@ -62,6 +66,41 @@ export default function ContentEditor({
   const handleContentChange = (value: string) => {
     setContent(value);
     setIsChanged(true);
+  };
+
+  const handleDelete = async () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const deleteResult = await deletePostAction({ postId: posts[0].id });
+          if (!deleteResult.success) throw new Error("Failed to delete post");
+
+          // Show success message
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your post has been deleted.",
+            icon: "success",
+          });
+
+          router.push("/posts"); // Redirect after successful deletion
+        } catch (err) {
+          console.error("An error occurred while deleting the post: ", err);
+          Swal.fire({
+            title: "Error!",
+            text: "An error occurred while deleting the post.",
+            icon: "error",
+          });
+        }
+      }
+    });
   };
 
   const handleExport = useCallback(() => {
@@ -92,10 +131,18 @@ export default function ContentEditor({
           <SubmitButton></SubmitButton>
           <Button
             onClick={handleExport}
-            className="w-40 bg-gradient-to-r from-amber-500 to-amber-900 hover:from-amber-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50"
+            className="w-40 bg-gradient-to-r from-amber-900 to-amber-500 hover:from-amber-500 hover:to-amber-900 text-white font-semibold py-2 px-4 rounded-full shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50"
           >
             <Download className="w-5 h-5 mr-2" />
             Export
+          </Button>
+
+          <Button
+            onClick={handleDelete}
+            className="w-40 bg-gradient-to-r from-red-900 to-red-500 hover:from-red-500 hover:to-red-900 text-white font-semibold py-2 px-4 rounded-full shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+          >
+            <Trash className="w-5 h-5 mr-2" />
+            Delete Post
           </Button>
         </div>
       </div>
