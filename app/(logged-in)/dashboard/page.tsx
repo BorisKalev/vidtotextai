@@ -8,7 +8,6 @@ import {
   updateUser,
 } from "@/lib/user-helpers";
 import { currentUser } from "@clerk/nextjs/server";
-import { Badge } from "@/components/ui/badge";
 import UpgradeYourPlan from "@/components/upload/upgrade-your-plan";
 import UploadForm from "@/components/upload/upload-form";
 import { redirect } from "next/navigation";
@@ -50,9 +49,9 @@ export default async function Dashboard() {
     <BgGradient>
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         <div className="flex flex-col items-center justify-center gap-6 text-center">
-          <Badge className="bg-gradient-to-r from-blue-800 to-blue-400 text-white px-4 py-1 text-lg font-semibold capitalize">
+          <div className="bg-gradient-to-r from-blue-800 to-blue-400 text-white px-4 py-1 text-lg font-semibold capitalize rounded-full">
             {planTypeName} Plan
-          </Badge>
+          </div>
 
           <h2 className="capitalize text-3xl font-bold tracking-tight text-gray900 sm:text-4xl">
             Start creating amazing content

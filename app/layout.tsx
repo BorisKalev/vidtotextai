@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/home/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
+import { ORIGIN_URL } from "@/lib/constant";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +32,10 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicons/favicon.ico",
   },
+  // metadataBase: new URL(ORIGIN_URL),
+  // alternates: {
+  //   canonical: ORIGIN_URL,
+  // }
 };
 
 export default function RootLayout({
