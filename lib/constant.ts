@@ -3,13 +3,13 @@ export const plansMap = [
       id: "basic",
       name: "Basic",
       description: "Get started with Verbto!",
-      price: "10",
+      price: "9.99",
       items: ["3 Blog Posts", "3 Transcription"],
-      paymentLink: "https://buy.stripe.com/test_3csg0r4ti2gW9TW7ss",
+      paymentLink: "https://buy.stripe.com/14k2aU4bobeJ0Vi7ss",
       priceId:
         process.env.NODE_ENV === "development"
           ? "price_1PyEowP1BOIMEgJYvxyfy8bf"
-          : "",
+          : "price_1Q0pnSP1BOIMEgJYCyfNlP1t",
     },
     {
       id: "pro",
@@ -17,11 +17,11 @@ export const plansMap = [
       description: "All Blog Posts, let’s go!",
       price: "19.99",
       items: ["Unlimited Blog Posts", "Unlimited Transcriptions"],
-      paymentLink: "https://buy.stripe.com/test_4gw01t9NC3l05DG5kl",
+      paymentLink: "https://buy.stripe.com/bIYdTC9vI3MhfQc5kl",
       priceId:
         process.env.NODE_ENV === "development"
           ? "price_1PyEowP1BOIMEgJYzcIcR3pP"
-          : "",
+          : "price_1Q0pnSP1BOIMEgJYWYbrvW2M",
     },
   ];
 
