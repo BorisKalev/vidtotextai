@@ -1,5 +1,4 @@
 import BgGradient from "@/components/common/bg-gradient";
-import { plansMap } from "@/lib/constant";
 import getDbConnection from "@/lib/db";
 import {
   doesUserExist,
