@@ -1,9 +1,9 @@
 export default function BgGradient({
   children,
-  className,
-}: {
+}: // className,
+{
   children: React.ReactNode;
-  className?: string;
+  // className?: string;
 }) {
   return (
     <div className="relative isolate">

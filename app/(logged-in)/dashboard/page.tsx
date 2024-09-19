@@ -24,7 +24,7 @@ export default async function Dashboard() {
 
   let userId = null;
   let priceId = null;
-  const hasUserCancelled = await hasCancelledSubscription(sql, email);
+  // const hasUserCancelled = await hasCancelledSubscription(sql, email);
 
   const user = await doesUserExist(sql, email);
 
@@ -42,7 +42,7 @@ export default async function Dashboard() {
     getPlanType(priceId);
 
   const isBasicPlan = planTypeId === "basic";
-  const isProPlan = planTypeId === "pro";
+  // const isProPlan = planTypeId === "pro";
 
   return (
     <BgGradient>
