@@ -20,7 +20,6 @@ export default function InitializedMDXEditor({
   return (
     <MDXEditor
       plugins={[
-        // Example Plugin Usage
         headingsPlugin(),
         listsPlugin(),
         quotePlugin(),
