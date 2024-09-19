@@ -3,7 +3,7 @@ import getDbConnection from "@/lib/db";
 import {
   doesUserExist,
   getPlanType,
-  hasCancelledSubscription,
+  // hasCancelledSubscription,
   updateUser,
 } from "@/lib/user-helpers";
 import { currentUser } from "@clerk/nextjs/server";
