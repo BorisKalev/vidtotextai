@@ -4,8 +4,6 @@ import { MDXEditorMethods, MDXEditorProps } from "@mdxeditor/editor";
 import dynamic from "next/dynamic";
 import { forwardRef } from "react";
 
-// ForwardRefEditor.tsx
-
 // This is the only place InitializedMDXEditor is imported directly.
 const Editor = dynamic(() => import("./mdx-editor"), {
   // Make sure we turn SSR off
