@@ -10,8 +10,3 @@ export default function Page() {
     </section>
   );
 }
-
-// Define static parameters for dynamic routes
-export async function generateStaticParams() {
-  return [];
-}
