@@ -36,7 +36,7 @@ export default async function Dashboard() {
       await updateUser(sql, userId, email);
     }
 
-    priceId = user[0].price_id;
+    priceId = user[0]?.price_id;
   }
   const { id: planTypeId = "starter", name: planTypeName } =
     getPlanType(priceId);
