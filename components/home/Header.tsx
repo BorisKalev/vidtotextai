@@ -86,7 +86,7 @@ export default function Header() {
 
         <SignedOut>
           <SignInButton>
-            <NavLink href="/signin">Sign In</NavLink>
+            <NavLink href="/sign-in">Sign In</NavLink>
           </SignInButton>
         </SignedOut>
       </div>
