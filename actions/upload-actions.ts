@@ -168,16 +168,33 @@ export async function generateBlogPostAction({transcriptions, userId} : {transcr
   }
 
   const [title, ...contentParts] = blogPost?.split("\n\n") || [];
+  console.log('Blog Post Title:', title);
+  console.log('Blog Post Content:', blogPost);
 
-  //database connection
-
-  
-  if (userId) {
-    postId = await saveBlogPost(userId, title, blogPost);
+  // Database connection and insert
+  if (userId && title) {
+    try {
+      postId = await saveBlogPost(userId, title, blogPost);
+      console.log('Post ID:', postId);
+    } catch (error) {
+      console.error('Error saving post to the database:', error);
+      return {
+        success: false,
+        message: "Error saving the blog post. Please try again later.",
+      };
+    }
   }
 
-  revalidatePath(`/posts/${postId}`);
-  redirect(`/posts/${postId}`);
+  if (postId) {
+    revalidatePath(`/posts/${postId}`);
+    redirect(`/posts/${postId}`);
+  } else {
+    console.error('Failed to obtain a valid post ID.');
+    return {
+      success: false,
+      message: "Failed to create the blog post. Please try again.",
+    };
+  }
 }
 
 }
