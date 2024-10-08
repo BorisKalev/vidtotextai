@@ -34,5 +34,5 @@ export function getPlanType(priceId: string) {
     if (priceId === null) return { id: "starter", name: "Starter" };
   
     const checkPlanType = plansMap.filter((plan) => plan.priceId === priceId);
-    return checkPlanType?.[0];
+    return checkPlanType?.[0] || { id: "starter", name: "Starter" };
   }
