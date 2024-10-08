@@ -38,8 +38,19 @@ export default async function Dashboard() {
 
     priceId = user[0]?.price_id;
   }
+  if (!user || user.length === 0) {
+    console.error("User does not exist or the user list is empty.");
+  } else {
+    console.log("User found:", user);
+  }
+
+  if (!priceId) {
+    console.error("priceId is undefined or null.");
+  }
+
   const { id: planTypeId = "starter", name: planTypeName } =
     getPlanType(priceId);
+  console.log("Plan Type ID:", planTypeId, "Plan Type Name:", planTypeName);
 
   const isBasicPlan = planTypeId === "basic";
   // const isProPlan = planTypeId === "pro";
