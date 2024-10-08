@@ -28,7 +28,7 @@ export default async function Dashboard() {
 
   const user = await doesUserExist(sql, email);
 
-  if (user) {
+  if (user && user.length > 0) {
     //update the user_id in users table
     userId = clerkUser?.id;
 
