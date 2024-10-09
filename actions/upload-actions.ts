@@ -187,6 +187,9 @@ export async function generateBlogPostAction({transcriptions, userId} : {transcr
 
   if (postId) {
     revalidatePath(`/posts/${postId}`);
+    // Introduce a slight delay to ensure the revalidation process has completed
+    await new Promise((resolve) => setTimeout(resolve, 2000)); 
+  
     redirect(`/posts/${postId}`);
   } else {
     console.error('Failed to obtain a valid post ID.');
