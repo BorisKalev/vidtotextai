@@ -58,8 +58,5 @@ Verbto is designed to make transcription easy and efficient by combining advance
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-## Contact
-
-For questions or support, feel free to reach out to us at **contact@verbto.com** or open an issue on GitHub.
 
 
