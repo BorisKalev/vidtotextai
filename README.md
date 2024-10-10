@@ -41,10 +41,10 @@ Verbto is designed to make transcription easy and efficient by combining advance
 
 ## Screenshots
 
-![Screenshot 1](./screenshots/upload.png)
+![Screenshot 1](./screenshots/vebrto.png)
 *Upload audio or video files effortlessly.*
 
-![Screenshot 2](./screenshots/transcription.png)
+![Screenshot 2](./screenshots/verbto-post.png)
 *Review and edit AI-generated transcriptions.*
 
 ## Future Enhancements
