@@ -12,6 +12,10 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+async function delay(ms:any) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function saveBlogPost(userId: string, title: string, content: string) {
   try {
     const sql = await getDbConnection();
@@ -186,6 +190,7 @@ export async function generateBlogPostAction({transcriptions, userId} : {transcr
   }
 
   if (postId) {
+    await delay(1000);
     revalidatePath(`/posts/${postId}`);
     redirect(`/posts/${postId}`);
   } else {
